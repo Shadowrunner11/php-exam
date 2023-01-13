@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  mysql:
+    image: docker.io/bitnami/mysql:5.7
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_USER=bn_myapp
+      - MYSQL_DATABASE=bitnami_myapp
+    ports:
+      - '3309:3306'
+  myapp:
+    image: docker.io/bitnami/laravel:9
+    ports:
+      - '8000:8000'
+    environment:
+      - DB_HOST=msql
+      - DB_PORT=3306
+      - DB_USERNAME=bn_myapp
+      - DB_DATABASE=bitnami_myapp
+    volumes:
+      - .:/app
+    depends_on:
+      - mysql
