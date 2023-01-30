@@ -12,6 +12,7 @@ services:
       - '3309:3306'
   myapp:
     image: docker.io/bitnami/laravel:9
+    # user: bitnami
     ports:
       - '8000:8000'
     environment:
@@ -20,6 +21,6 @@ services:
       - DB_USERNAME=bn_myapp
       - DB_DATABASE=bitnami_myapp
     volumes:
-      - .:/app
+      - .:/home/bitnami/app
     depends_on:
       - mysql
