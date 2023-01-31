@@ -1,8 +1,8 @@
 <?php
 
 namespace App\GraphQL\Mutations;
+
 use GraphQL\Error\Error;
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Arr as SupportArr;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +18,7 @@ final class Login
         // Laravel Sanctum: Auth::guard(Arr::first(config('sanctum.guard')))
         $guard =  Auth::guard(SupportArr::first(config('sanctum.guard')));
 
-        if( ! $guard->attempt($args)) {
+        if (! $guard->attempt($args)) {
             throw new Error('Invalid credentials.');
         }
 
