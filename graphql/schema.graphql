@@ -17,17 +17,10 @@ type Query {
       "Filters by name. Accepts SQL LIKE wildcards `%` and `_`."
       name: String @where(operator: "like")
     ): [User!]! @paginate(defaultCount: 10)
-
-    authUser(
-      id: ID
-      username: String
-      token: String
-      email: String
-    )
 }
 
 type Mutation {
-  login(email: String!, password: String!): String!
+    login(email: String, password: String): String!
 }
 "Account of a person who utilizes this application."
 type User {
@@ -48,11 +41,4 @@ type User {
 
     "When the account was last updated."
     updated_at: DateTime!
-}
-
-type AuthUser {
-  id: ID!
-  username: String!
-  email: String!
-  token: String!
 }
