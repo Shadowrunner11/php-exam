@@ -13,7 +13,6 @@ services:
   myapp:
     image: docker.io/bitnami/laravel:9
     # user: bitnami
-    working_dir: /home/bitnami/app
     ports:
       - '8000:8000'
     environment:

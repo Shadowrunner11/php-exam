@@ -18,4 +18,6 @@ class UserSeeder extends Seeder
     {
         
     }
+
+    
 }

@@ -15,7 +15,7 @@
 
 	// The optional 'workspaceFolder' property is the path VS Code should open by default when
 	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
-	"workspaceFolder": "/home/bitnami/app",
+	"workspaceFolder": "/app",
 	"remoteEnv":{
 		"DB_CONNECTION": "mysql",
 		"APP_ENV": "local",
